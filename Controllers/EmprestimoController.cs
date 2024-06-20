@@ -33,6 +33,9 @@ public class EmprestimoController : Controller
         {
             _dataBase.Emprestimos.Add(emprestimos);
             _dataBase.SaveChanges();
+
+            TempData["MensagemSucesso"] = "Cadastro realizado com sucesso!";
+
             return RedirectToAction("Index");
         }
         return View();
@@ -62,6 +65,9 @@ public class EmprestimoController : Controller
         {
             _dataBase.Emprestimos.Update(emprestimo);
             _dataBase.SaveChanges();
+
+            TempData["MensagemSucesso"] = "Edição realizada com sucesso!";
+
             return RedirectToAction("Index");
         }
         return View(emprestimo);
@@ -93,6 +99,9 @@ public class EmprestimoController : Controller
         }
         _dataBase.Emprestimos.Remove(emprestimo);
         _dataBase.SaveChanges();
+
+        TempData["MensagemSucesso"] = "Exclusão realizada com sucesso!";
+
         return RedirectToAction("Index");
     }
 }
